@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:45:22 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/01 04:18:30 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/01 15:11:47 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Contact
 		std::string get_firstname();
 		std::string get_lastname();
 		std::string get_nickname();
+		void	print_infos();
 
 	private :
 		std::string m_first_name;
