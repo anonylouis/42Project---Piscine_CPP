@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:37:45 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/05 02:52:58 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/05 03:45:19 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA
 
 	private :
 		std::string name;
-		Weapon *human_weapon;
+		Weapon &human_weapon;
 		
 };
 

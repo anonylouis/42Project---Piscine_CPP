@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:38:45 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/05 01:06:02 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/05 03:47:30 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ class HumanB
 		void attack() const;
 
 	private :
-		Weapon *human_weapon;
 		std::string name;
+		Weapon *human_weapon;
+		
 };
 
 #endif
