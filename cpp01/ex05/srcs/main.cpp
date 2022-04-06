@@ -6,33 +6,22 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:09:38 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/05 03:48:50 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/06 18:42:54 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "Harl.hpp"
+#include <iostream>
 
-int main()
+int main(int argc, char **argv)
 {
-	std::cout << "Human A test :" << std::endl;
+	if (argc != 2)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cout << "Use the command like this :" << std::endl;
+		std::cout << "./Harl [s1]" << std::endl;
+		return 1;
 	}
-	std::cout << std::endl << "Human B test :" << std::endl;
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.attack();
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	Harl harl;
+	harl.complain(argv[1]);
 	return 0;
 }

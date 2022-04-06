@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 01:47:14 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/06 18:10:51 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/04 16:09:38 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/06 18:43:08 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 #include <iostream>
-#include <string>
 
-class Harl
+int main(int argc, char **argv)
 {
-	public :
-		Harl();
-		~Harl();
-		void complain(std::string level);
-
-	private :
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
-};
-
-#endif 
+	if (argc != 2)
+	{
+		std::cout << "Use the command like this :" << std::endl;
+		std::cout << "./harlFilter [s1]" << std::endl;
+		return 1;
+	}
+	Harl harl;
+	harl.complain(argv[1]);
+	return 0;
+}
