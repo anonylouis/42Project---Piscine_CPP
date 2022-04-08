@@ -6,12 +6,13 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:41:36 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/07 18:13:10 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/08 13:10:04 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+//Overflow a  -2**23 et 2**23 - 1
 const int Fixed::binary = 8;
 
 Fixed::Fixed() : width(0)
@@ -23,14 +24,9 @@ Fixed::Fixed(const int n)
 {
 	int tmp(n);
 
-	if (n >= 0 && n <= 8388607)
-	{
-		for (int i=0; i < Fixed::binary; i++)
-			tmp*=2;
-		width = tmp;
-	}
-	else
-		width = 0;
+	for (int i=0; i < Fixed::binary; i++)
+		tmp*=2;
+	width = tmp;
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -52,11 +48,7 @@ static int float_to_fixed(float f, const int bin)
 
 Fixed::Fixed(const float f)
 {
-	
-	if (f >= 0 && f <= 8388607)
-		width = float_to_fixed(f, binary);
-	else
-		width = 0;
+	width = float_to_fixed(f, binary);
 	 std::cout << "Float constructor called" << std::endl;
 }
 
@@ -91,7 +83,6 @@ void Fixed::setRawBits(int const raw)
 float Fixed::toFloat(void) const
 {
 	float n = width;
-
 	for (int i=0; i < Fixed::binary; i++)
 		n/=2;
 	return (n);
@@ -109,39 +100,4 @@ std::ostream& operator<<(std::ostream &out, Fixed const& n)
 {
 	out << n.toFloat();
 	return out;
-}
-
-int Fixed::getWidth() const
-{
-	return width;
-}
-
-bool operator>(Fixed a, Fixed b)
-{
-	return (a.getWidth() > b.getWidth());
-}
-
-bool operator<(Fixed a, Fixed b)
-{
-	return (a.getWidth() < b.getWidth());
-}
-
-bool operator>=(Fixed a, Fixed b)
-{
-	return (a.getWidth() >= b.getWidth());
-}
-
-bool operator<=(Fixed a, Fixed b)
-{
-	return (a.getWidth() <= b.getWidth());
-}
-
-bool operator==(Fixed a, Fixed b)
-{
-	return (a.getWidth() == b.getWidth());
-}
-
-bool operator!=(Fixed a, Fixed b)
-{
-	return (a.getWidth() != b.getWidth());
 }
