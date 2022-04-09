@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:43:49 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/08 18:02:28 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/09 18:06:05 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ class Point
         Point(Point const& copy);
         Point &operator=(Point const& b);
         ~Point();
-        float get_float_x() const;
-        float get_float_y() const;
+        Fixed get_x() const;
+	Fixed get_y() const;
 
     private :
         Fixed const x;
         Fixed const y;
     
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

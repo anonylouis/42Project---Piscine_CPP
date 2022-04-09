@@ -6,51 +6,88 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:45:18 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/08 19:27:59 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/09 23:32:48 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-float ft_min(float a, float b, float c)
+void order_tab_x(const Point *tab[3])
 {
-    if (a <= b && a <= c)
-        return a;
-    else if (b <= a && b <=c)
-        return b;
-    else
-        return c;
+	if ((*tab[1]).get_x() <= (*tab[0]).get_x() && (*tab[1]).get_x() <= (*tab[2]).get_x())
+	{
+		const Point *tmp = tab[1];
+		tab[1] = tab[0];
+		tab[0] = tmp;
+	}
+	else if ((*tab[2]).get_x() <= (*tab[0]).get_x() && (*tab[2]).get_x() <= (*tab[1]).get_x())
+	{
+		const Point *tmp =tab[2];
+		tab[2] = tab[0];
+		tab[0] = tmp;
+	}
+	if ((*tab[1]).get_x() > (*tab[2]).get_x())
+	{
+		const Point *tmp = tab[2];
+		tab[2] = tab[1];
+		tab[1] = tmp;
+	}
 }
 
-float ft_max(float a, float b, float c)
+void order_tab_y(const Point *tab[3])
 {
-    if (a >= b && a >= c)
-        return a;
-    else if (b >= a && b >=c)
-        return b;
-    else
-        return c;
+	if ((*tab[1]).get_y() <= (*tab[0]).get_y() && (*tab[1]).get_y() <= (*tab[2]).get_y())
+	{
+		const Point *tmp = tab[1];
+		tab[1] = tab[0];
+		tab[0] = tmp;
+	}
+	else if ((*tab[2]).get_y() <= (*tab[0]).get_y() && (*tab[2]).get_y() <= (*tab[1]).get_y())
+	{
+		const Point *tmp =tab[2];
+		tab[2] = tab[0];
+		tab[0] = tmp;
+	}
+	if ((*tab[1]).get_y() > (*tab[2]).get_y())
+	{
+		const Point *tmp = tab[2];
+		tab[2] = tab[1];
+		tab[1] = tmp;
+	}
 }
 
-bool is_in_square(Point const a, Point const b, Point const c, Point const point)
+Fixed y_line(Point const& a, Point const& b, Fixed const& x)
 {
-    const float minimum_x(ft_min(a.get_float_x(), b.get_float_x(),c.get_float_x()));
-    const float maximum_x(ft_max(a.get_float_x(), b.get_float_x(),c.get_float_x()));
-    const float minimum_y(ft_min(a.get_float_y(), b.get_float_y(),c.get_float_y()));
-    const float maximum_y(ft_max(a.get_float_y(), b.get_float_y(),c.get_float_y()));
-
-    if (point.get_float_x() > maximum_x || point.get_float_x() < minimum_x
-            || point.get_float_y() > maximum_y || point.get_float_y() < minimum_y)
-        return false;
-    return true;
+	return ((x - a.get_x()) * (a.get_y()-b.get_y()) / (a.get_x()-b.get_x()) + a.get_y()).toFloat();
 }
 
+bool is_in_triangle(const Point *tab[3], Point p)
+{
+	Fixed y1, y2;
+
+	if (p.get_x() <= (*tab[1]).get_x())
+	{
+		y1 = y_line(*tab[0], *tab[1], p.get_x());
+		y2 = y_line(*tab[0], *tab[2], p.get_x());
+	}
+	else
+	{
+		y1 = y_line(*tab[1], *tab[2], p.get_x());
+		y2 = y_line(*tab[0], *tab[2], p.get_x());
+	}
+	if (y1 <= y2)
+		return (p.get_y() > y1 && p.get_y() < y2);
+	return (p.get_y() > y2 && p.get_y() < y1);
+}
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-    if (!is_in_square(a,b,c,point))
-        return false;
-    float m1((b.get_float_x()-);
-    float m2();
-    float xBC = ()
+	const Point *tab_x[3] = {&a, &b, &c};
+	const Point *tab_y[3] = {&a, &b, &c};
+	order_tab_x(tab_x);
+	order_tab_y(tab_y);
+	if (point.get_x() <= (*tab_x[0]).get_x() || point.get_x() >= (*tab_x[2]).get_x()
+		|| point.get_y() <= (*tab_y[0]).get_y() || point.get_y() >= (*tab_y[2]).get_y())
+		return false;
+	return (is_in_triangle(tab_x, point));
 }

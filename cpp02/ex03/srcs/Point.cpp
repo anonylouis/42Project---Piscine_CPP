@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:44:39 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/08 18:16:18 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/09 19:32:15 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ Point::~Point()
 {
 }
 
-float Point::get_float_x() const
+Fixed Point::get_x() const
 {
-    return (x.toFloat());
+    return (x);
 }
 
-float Point::get_float_y() const
+Fixed Point::get_y() const
 {
-    return (y.toFloat());
+    return (y);
 }
