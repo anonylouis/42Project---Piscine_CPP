@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:32:31 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/11 18:53:48 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/12 04:07:25 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 
                 ScavTrap &operator=(ScavTrap const& copy);
-
-	private :
-                void guardGate();
+		void guardGate();
 };
 
 #endif
