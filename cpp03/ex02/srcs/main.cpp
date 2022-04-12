@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 17:32:31 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:08:36 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/07 02:07:36 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/12 14:15:30 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include <iostream>
-# include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int	main(void)
 {
-	public :
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& copy);
-		~ScavTrap();
+	FragTrap Marine("Marine");
+	ScavTrap Benjamin("Benjamin");
+	std::cout << std::endl;
 
-                ScavTrap &operator=(ScavTrap const& copy);
+	Marine.attack("Benjamin");
+	Benjamin.takeDamage(30);
+	Marine.highFivesGuys();
+	Benjamin.attack("Marine");
+	Marine.takeDamage(20);
+	Marine.beRepaired(5);
+	Benjamin.guardGate();
 
-		void attack(const std::string& target);
-		
-		void guardGate();
-};
-
-#endif
+	std::cout << std::endl;
+	return 0;
+}

@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:32:31 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:08:36 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/12 14:47:18 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public :
 		ScavTrap();
@@ -23,10 +23,9 @@ class ScavTrap : public ClapTrap
 		ScavTrap(ScavTrap const& copy);
 		~ScavTrap();
 
-                ScavTrap &operator=(ScavTrap const& copy);
-
 		void attack(const std::string& target);
-		
+
+                ScavTrap &operator=(ScavTrap const& copy);
 		void guardGate();
 };
 

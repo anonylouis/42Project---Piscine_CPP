@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 17:32:31 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:08:36 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/12 13:48:40 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/12 14:10:16 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	public :
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& copy);
-		~ScavTrap();
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(FragTrap const& copy);
+		~FragTrap();
 
-                ScavTrap &operator=(ScavTrap const& copy);
-
-		void attack(const std::string& target);
-		
-		void guardGate();
+                FragTrap &operator=(FragTrap const& copy);
+		void highFivesGuys(void);
 };
 
 #endif
