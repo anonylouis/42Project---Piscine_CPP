@@ -6,26 +6,28 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 02:07:36 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:15:30 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:41:55 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	FragTrap Marine("Marine");
-	ScavTrap Benjamin("Benjamin");
+	DiamondTrap Louis("Louis");
+	ClapTrap Luna("Luna");
 	std::cout << std::endl;
 
-	Marine.attack("Benjamin");
-	Benjamin.takeDamage(30);
-	Marine.highFivesGuys();
-	Benjamin.attack("Marine");
-	Marine.takeDamage(20);
-	Marine.beRepaired(5);
-	Benjamin.guardGate();
+	Louis.whoAmI();
+	Louis.guardGate();
+	Louis.highFivesGuys();
+	Luna.attack("Louis");
+	Louis.takeDamage(0);
+	Louis.beRepaired(5);
+	Louis.attack("Luna");
+	Luna.takeDamage(30);
 
 	std::cout << std::endl;
 	return 0;

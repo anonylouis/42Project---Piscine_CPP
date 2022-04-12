@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:37:52 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:09:10 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:59:51 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (_energy && _hitpoints)
 	{
-		std::cout << "ScavTrap " << _name << " attacks " << target << " causing " << _attack_damage << " damage !" << std::endl;
+		std::cout << "ScavTrap " << _name << " attacks " << target << " causing " << _attack_damage << " damages !" << std::endl;
 		_energy--;
 	}
 	else if (!_hitpoints)
