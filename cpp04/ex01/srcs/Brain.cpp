@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/13 22:58:47 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 14:56:36 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/14 15:09:51 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/14 15:23:20 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : public Animal
+Brain::Brain()
 {
-	public :
-		Cat();
-		Cat(Cat const& copy);
-		Cat &operator=(Cat const& copy);
-		virtual ~Cat();
+        std::cout << "Someone finally found a brain" << std::endl;
+}
 
-		virtual void makeSound() const;
-};
+Brain::Brain(Brain const& copy)
+{
+        std::cout << "Someone finally found a brain" << std::endl;
+}
 
-#endif
+Brain::~Brain()
+{
+        std::cout << "Someone lost his mind" << std::endl;
+}
+
+Brain &Brain::operator=(Brain const& copy)
+{
+      std::copy(copy.ideas, copy.ideas+100, ideas);
+}

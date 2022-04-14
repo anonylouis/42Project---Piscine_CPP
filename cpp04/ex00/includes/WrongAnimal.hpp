@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 22:57:46 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 01:49:10 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:01:51 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal
 		WrongAnimal(std::string new_type);
 		WrongAnimal(WrongAnimal const& copy);
 		WrongAnimal &operator=(WrongAnimal const& copy);
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		std::string getType() const;
 		void makeSound() const;

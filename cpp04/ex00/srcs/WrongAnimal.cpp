@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 01:49:51 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 01:59:47 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:02:25 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const& copy)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "An WrongAnimal has despawned" << std::endl;
+	std::cout << "A WrongAnimal has despawned" << std::endl;
 }
 
 void WrongAnimal::makeSound() const
