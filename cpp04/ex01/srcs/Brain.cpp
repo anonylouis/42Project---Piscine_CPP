@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 15:09:51 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 15:23:20 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:44:10 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Brain::Brain()
 
 Brain::Brain(Brain const& copy)
 {
+        *this = copy;
         std::cout << "Someone finally found a brain" << std::endl;
 }
 
@@ -29,5 +30,6 @@ Brain::~Brain()
 
 Brain &Brain::operator=(Brain const& copy)
 {
-      std::copy(copy.ideas, copy.ideas+100, ideas);
+      std::copy(copy.ideas, copy.ideas+100, this->ideas);
+      return *this;
 }
