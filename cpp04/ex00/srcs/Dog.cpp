@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 23:57:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 01:43:54 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 23:31:21 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << "Dog goes WOOF" << std::endl;
+	std::cout << "\e[1;36m" << "Dog goes WOOF" << "\e[0m" <<std::endl;
 }
 

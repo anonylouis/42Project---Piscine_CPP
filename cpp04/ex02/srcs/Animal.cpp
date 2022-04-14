@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 23:56:54 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 23:33:00 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 01:45:44 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-	std::cout << "\e[0;31m" <<"Gering-ding-ding-ding-ding-dingeringdeding" << "\e[0m" <<std::endl;
+	std::cout << "Gering-ding-ding-ding-ding-dingeringdeding" << std::endl;
 }
 
 std::string Animal::getType() const

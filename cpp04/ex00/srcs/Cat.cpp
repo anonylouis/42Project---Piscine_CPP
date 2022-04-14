@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 23:57:12 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 01:43:51 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 23:31:05 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-	std::cout << "Cat goes MEOW" << std::endl;
+	std::cout << "\e[1;32m" << "Cat goes MEOW" << "\e[0m" <<std::endl;
 }

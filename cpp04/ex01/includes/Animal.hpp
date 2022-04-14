@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 22:57:46 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 14:56:25 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/15 00:09:24 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 		std::string getType() const;
 		virtual void makeSound() const;
 
-	private :
+	protected :
 		std::string type;
 };
 

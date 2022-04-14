@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 01:49:51 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/14 15:02:25 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/14 23:32:21 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "Wa-pa-pa-pa-pa-pa-pow" << std::endl;
+	std::cout << "\e[0;31m" << "Wa-pa-pa-pa-pa-pa-pow" << "\e[0m" << std::endl;
 }
 
 std::string WrongAnimal::getType() const
