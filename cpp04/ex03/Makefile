@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = abstract
+NAME = materias
 
 SOURCES = $(shell find ./srcs -type f -name '*.cpp' -exec basename {} \;)
 #SRCS = $(addprefix ./srcs/, $(SOURCES))
