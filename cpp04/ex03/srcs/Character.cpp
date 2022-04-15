@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:41:10 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/15 15:25:10 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/15 15:57:33 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,33 @@ Character::Character(std::string the_name) : name(the_name), items{}
         std::cout << "Character " << name << " created with sucess !" << std::endl;
 }
 
+Character::Character(Character const& copy)
+{
+        *this = copy;
+        std::cout << "A copy of character " << name << " created with sucess !" << std::endl;
+}
+
 Character::~Character()
 {
         for (int i = 0; i < 4; i++)
                 delete items[i];
         std::cout << "Character " << name << " deleted !" << std::endl;
+}
+
+Character &Character::operator=(Character const& copy)
+{
+        if (this == &copy)
+                return *this;
+        name = copy.getName();
+        for (int i = 0; i < 4; i++)
+        {
+                delete items[i];
+                if ((copy.items)[i] != 0)
+                        items[i] = (copy.items)[i]->clone();
+                else
+                        items[i] = 0;
+        }
+        return *this;
 }
 
 std::string const & Character::getName() const
@@ -52,7 +74,7 @@ void Character::unequip(int idx)
         if (idx >= 0 && idx <= 4)
         {
                 items[idx] = 0;
-                std:cout << "Character " << name << " has well unequipped the Materia slot " << idx << std::endl;
+                std::cout << "Character " << name << " has well unequipped the Materia slot " << idx << std::endl;
         }
         else
                 std::cout << "Character " << name << " doesn't have a slot numbered " << idx << std::endl;

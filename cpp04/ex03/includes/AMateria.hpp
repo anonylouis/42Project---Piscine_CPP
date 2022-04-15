@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 00:11:54 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/15 14:57:08 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/15 16:15:54 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class AMateria
 {
 	protected:
-		const std::string type;
+		std::string type;
 
 	public:
 		

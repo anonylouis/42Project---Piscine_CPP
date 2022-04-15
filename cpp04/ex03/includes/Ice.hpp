@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 00:51:02 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/15 00:59:31 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/15 17:41:24 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ class Ice : public AMateria
 {
 	public :
 		Ice();
+		Ice(Ice const& copy);
 		~Ice();
 
+		Ice &operator=(Ice const& copy);
+
+		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 };
 

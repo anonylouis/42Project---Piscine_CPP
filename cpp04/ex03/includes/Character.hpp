@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:36:46 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/15 15:25:34 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/15 15:27:52 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 class Character : public ICharacter
 {
         public :
-                Character();
                 Character(std::string the_name = "RandomPNJ");
-                Character();
+                Character(Character const& copy);
                 ~Character();
 
+                Character &operator=(Character const& copy);
 
                 virtual std::string const & getName() const;
                 virtual void equip(AMateria* m);
@@ -31,7 +31,7 @@ class Character : public ICharacter
                 virtual void use(int idx, ICharacter& target);
 
         private :
-                const std::string name;
+                std::string name;
                 AMateria *items[4];
 };
 

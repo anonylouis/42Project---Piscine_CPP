@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/15 00:54:52 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/15 17:44:44 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/15 17:46:40 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/15 17:49:04 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
+# include <iostream>
 
-Cure::Cure() : AMateria("cure")
+class MateriaSource : public IMateriaSource
 {
-}
+        public :
+                virtual void learnMateria(AMateria*);
+                virtual AMateria* createMateria(std::string const & type);
+};
 
-Cure::~Cure()
-{
-}
-
-void Cure::use(ICharacter& target)
-{
-	std::cout << "* heals " << target.getName()<< "’s wounds *" << std::endl;
-}
-
-AMateria* Cure::clone() const
-{
-	return (new Cure());
-}
+#endif
