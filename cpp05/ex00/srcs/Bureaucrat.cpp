@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:57:13 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/19 01:54:20 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/19 01:57:38 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void Bureaucrat::decrement_grade()
 
 std::ostream &operator<<(std::ostream &flux, Bureaucrat const& obj)
 {
-	flux << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+	flux << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return flux;
 }
