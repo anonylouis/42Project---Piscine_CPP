@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:57:02 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/19 14:22:13 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/19 15:19:25 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 # include <stdexcept>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -47,6 +50,8 @@ class Bureaucrat
 
 		const std::string getName() const;
 		int getGrade() const;
+
+		void signForm(Form &form) const;
 
 	private:
 		const std::string	_name;
