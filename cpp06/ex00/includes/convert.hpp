@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 23:57:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/25 03:23:58 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/04/25 03:23:25 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "convert.hpp"
+#ifndef CONVERT_HPP
+# define CONVERT_HPP
+# include <string>
+# include <iostream>
+# define CHAR 0
+# define INT 1
+# define FLOAT 2
+# define DOUBLE 3
+# define OTHER 4
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		std::cout << "Use like this : ./convert [arg 1]" << std::endl;
-		return 1;
-	}
-	
-	return 0;
-}
+
+
+
+#endif
