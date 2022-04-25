@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:57:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/25 03:23:58 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:18:47 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 		std::cout << "Use like this : ./convert [arg 1]" << std::endl;
 		return 1;
 	}
-	
+	int type = find_type(argv[1]);
+	if (type == CHAR)
+		convert_char(argv[1]);
 	return 0;
 }
