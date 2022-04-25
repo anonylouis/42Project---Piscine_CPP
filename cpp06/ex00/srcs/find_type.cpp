@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:23:53 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/25 19:21:16 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:31:12 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	check_char(std::string const& str)
 {
-	return (str.length() == 1);
+	return (str.length() == 1 && !isdigit(str[0]));
 }
 
 bool	check_int(std::string str)

@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/25 19:23:32 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/25 20:17:18 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 int	find_type(std::string const& str);
 void    convert_char(std::string const& str);
+void    convert_int(std::string const& str);
 
 
 #endif
