@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 23:57:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/25 20:17:33 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/25 23:27:19 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int	main(int argc, char **argv)
 	int type = find_type(argv[1]);
 	if (type == CHAR)
 		convert_char(argv[1]);
-	if (type == INT)
+	else if (type == INT)
 		convert_int(argv[1]);
+	else if (type == FLOAT)
+		convert_float(argv[1]);
+	else if (type == DOUBLE)
+		convert_double(argv[1]);
 	return 0;
 }
