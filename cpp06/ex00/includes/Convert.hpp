@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.hpp                                        :+:      :+:    :+:   */
+/*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/28 01:18:27 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/03 18:51:51 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,31 @@
 class Convert
 {
 	public :
-		void	find_type(std::string const& str);
+		Convert(std::string cpy = "");
+
+		void	find_type();
+		bool	check_char();
+		bool	check_int();
+		bool	check_float();
+		bool	check_double();
+		void	make_conversion();
 
 	private :
 		int	_type;
 
 		bool	c_possible;
-		char	c;
+		char	conv_c;
 
 		bool	i_possible;
-		int	i;
+		int	conv_i;
 
 		bool	f_possible;
-		float	f;
+		float	conv_f;
 
 		bool	d_possible;
-		double	d;
+		double	conv_d;
 
+		const std::string str;
 };
 
 
@@ -53,10 +61,6 @@ void    convert_int(std::string const& str);
 void    convert_float(std::string const& str);
 void    convert_double(std::string const& str);
 
-bool	check_char(std::string const& str);
-bool	check_int(std::string const& str);
-bool	check_float(std::string const& str);
-bool	check_double(std::string const& str);
 
 
 #endif
