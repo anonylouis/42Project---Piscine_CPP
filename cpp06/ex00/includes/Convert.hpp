@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/04 00:37:05 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/04 17:27:35 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ class Convert
 		Convert(std::string cpy = "");
 
 		void	find_type();
-		bool	check_char();
-		bool	check_int();
-		bool	check_float();
-		bool	check_double();
-		void	make_conversion();
 
+		void	make_conversion();
+		
+		void	display_char(std::ostream & flux) const;
+		void	display_int(std::ostream & flux) const;
+		void	display_float(std::ostream & flux) const;
+		void	display_double(std::ostream & flux) const;
+		
 	private :
 		int	_type;
 
@@ -52,14 +54,23 @@ class Convert
 		bool	d_possible;
 		double	conv_d;
 
-		const std::string str;
+		const std::string str;		
+		
+		bool	check_char();
+		bool	check_int();
+		bool	check_float();
+		bool	check_double();
+
+		void    convert_char();
+		void    convert_int();
+		void    convert_float();
+		void    convert_double();
+
+
 };
 
-void    convert_char(std::string const& str);
-void    convert_int(std::string const& str);
-void    convert_float(std::string const& str);
-void    convert_double(std::string const& str);
 
 
+std::ostream &operator<<(std::ostream & flux, Convert &obj);
 
 #endif
