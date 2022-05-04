@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/03 18:51:51 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/04 00:37:05 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ class Convert
 
 		const std::string str;
 };
-
 
 void    convert_char(std::string const& str);
 void    convert_int(std::string const& str);
