@@ -2,16 +2,16 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = convert
+NAME = base
 
-SOURCES = Convert.cpp  main.cpp
+SOURCES = Base.cpp  generate.cpp  main.cpp
 #SRCS = $(addprefix ./srcs/, $(SOURCES))
 
 OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER = ./includes
-HEADER_FILES = Convert.hpp
+HEADER_FILES = A.hpp  Base.hpp  B.hpp  C.hpp
 
 DEPENDENCIES = ${OBJS:.o=.d}
 all : $(NAME)

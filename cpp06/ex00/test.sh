@@ -10,8 +10,8 @@ echo "${RED}""CONVERT 0 :""${NC}"
 ./convert 0
 
 echo ""
-echo "${RED}""CONVERT 49 :""${NC}"
-./convert 49
+echo "${RED}""CONVERT 49.5 :""${NC}"
+./convert 49.5
 
 echo ""
 echo "${RED}""CONVERT INT MAX :""${NC}"
