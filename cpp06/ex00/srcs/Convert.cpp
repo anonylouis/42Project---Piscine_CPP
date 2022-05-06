@@ -6,14 +6,49 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 00:30:20 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/04 19:23:51 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/06 21:26:14 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-Convert::Convert(std::string cpy) : _type(OTHER), c_possible(false), i_possible(false), f_possible(false), d_possible(false), str(cpy)
+Convert::Convert(std::string cpy) : _type(OTHER), c_possible(false), conv_c(0), i_possible(false), conv_i(0), f_possible(false), conv_f(0.0), d_possible(false), conv_d(0.0), str(cpy)
 {
+}
+
+Convert::Convert(Convert const& copy)
+{
+	*this = copy;
+}
+
+Convert::~Convert()
+{
+}
+
+Convert	&Convert::operator=(Convert const& copy)
+{
+	_type = copy._type;
+	c_possible = copy.c_possible;
+	conv_c = copy.conv_c;
+	i_possible = copy.i_possible;
+	conv_i = copy.conv_i;
+	f_possible = copy.f_possible;
+	conv_f = copy.conv_f;
+	d_possible = copy.d_possible;
+	conv_d = copy.conv_d;
+	str = copy.str;
+
+	return *this;
+}
+
+int	Convert::get_type() const
+{
+	return (_type);
+}
+
+std::string	Convert::get_str() const
+{
+	return (str);
 }
 
 void	Convert::find_type()
@@ -24,9 +59,9 @@ void	Convert::find_type()
 		_type = CHAR;
 	else if (this->check_int())
 		_type = INT;
-	else if (str=="-inff" || str=="+inff" || str=="nanf" || this->check_float())
+	else if (this->check_float())
 		_type = FLOAT;
-	else if (str=="-inf" || str=="+inf" || str=="nan" || this->check_double())
+	else if (this->check_double())
 		_type = DOUBLE;
 	else
 		_type = OTHER;
@@ -64,11 +99,13 @@ bool	Convert::check_float()
 {
 	if (str == "-inff" || str == "+inff")
 	{
+		f_possible = true;
 		conv_f = std::numeric_limits<float>::infinity();
 		return true;
 	}
 	else if (str == "nanf")
 	{
+		f_possible = true;
 		conv_f = std::numeric_limits<float>::quiet_NaN();
 		return true;
 	}
@@ -83,7 +120,7 @@ bool	Convert::check_float()
 	
 	for(std::string::size_type i = 0; i < (n-1); i++)
 	{
-		if (i == 0 && str[i] == '-')
+		if (i == 0 && str[i] == '-' && i != n-2)
 			continue;
 		else if (i!=j && !isdigit(str[i]))
 			return false;
@@ -100,22 +137,24 @@ bool	Convert::check_double()
 {
 	if (str == "-inf" || str == "+inf")
 	{
-		conv_f = std::numeric_limits<double>::infinity();
+		d_possible = true;
+		conv_d = std::numeric_limits<double>::infinity();
 		return true;
 	}
 	else if (str == "nan")
 	{
-		conv_f = std::numeric_limits<double>::quiet_NaN();
+		d_possible = true;
+		conv_d = std::numeric_limits<double>::quiet_NaN();
 		return true;
 	}
 
 	std::string::size_type n(str.length());
 	std::string::size_type j = str.find('.');
-	if (j == 0 || (j==1 && str[0] == '-') || (n >= 2 && j == n - 2) || j != str.rfind('.'))
+	if (j == 0 || (j==1 && str[0] == '-') || j == n - 1 || j != str.rfind('.'))
 		return false;
-	for(std::string::size_type i = 0; i < (n-1); i++)
+	for(std::string::size_type i = 0; i < n; i++)
 	{
-		if (i == 0 && str[i] == '-')
+		if (i == 0 && str[i] == '-' && i != n - 1)
 			continue;
 		else if (i!=j && !isdigit(str[i]))
 			return false;
@@ -196,8 +235,8 @@ void    Convert::convert_double()
 	}
 	else
 		i_possible = false;
-
-	if (conv_d >= -std::numeric_limits<float>::max() && conv_d <= std::numeric_limits<float>::max())
+	
+	if (isnan(conv_d) || conv_d == std::numeric_limits<double>::infinity() || (conv_d >= -std::numeric_limits<float>::max() && conv_d <= std::numeric_limits<float>::max()))
 	{
 		f_possible = true;
 		conv_f = static_cast<float>(conv_d);
@@ -226,7 +265,7 @@ void	Convert::display_char(std::ostream & flux) const
 	else if (!isprint(conv_c))
 		flux << "Non displayable";
 	else
-		flux << conv_c;
+		flux << '\'' << conv_c << '\'';
 }
 
 void	Convert::display_int(std::ostream & flux) const
@@ -241,44 +280,50 @@ void	Convert::display_float(std::ostream & flux) const
 {
 	if (f_possible == false)
 		flux << "impossible";
+	else if (conv_f == std::numeric_limits<float>::infinity())
+		flux /*<< str[0]*/ << conv_f << 'f';
 	else
-		flux << conv_f;
+		flux << conv_f << 'f';
 }
 
 void	Convert::display_double(std::ostream & flux) const
 {
 	if (d_possible == false)
 		flux << "impossible";
+	else if (conv_d == std::numeric_limits<double>::infinity())
+		flux /*<< str[0]*/ << conv_d;
 	else
-	{
-		
 		flux << conv_d;
-	}
 }
 
 std::ostream &operator<<(std::ostream & flux, Convert &obj)
 {
+	if (obj.get_type() == OTHER)
+	{
+		flux << obj.get_str() << " : Unkown type !" << std::endl;
+	}
+	else
+	{
+		flux << std::fixed;
 
-	flux << std::fixed;
+		flux << "char : ";
+		obj.display_char(flux);
+		flux << std::endl;
 
-	flux << "char : ";
-	obj.display_char(flux);
-	flux << std::endl;
+		flux << "int : ";
+		obj.display_int(flux);
+		flux << std::endl;
 
-	flux << "int : ";
-	obj.display_int(flux);
-	flux << std::endl;
+		flux << "float : " << std::setprecision(1);
+		obj.display_float(flux);
+		flux << std::endl;
 
-	flux << "float : ";
-	obj.display_float(flux);
-	flux << std::endl;
+		flux << "double : " << std::setprecision(1);
+		obj.display_double(flux);
+		flux << std::endl;
 
-	flux << "double : ";
-	obj.display_double(flux);
-	flux << std::endl;
-
-	flux << std::scientific;
-
+		flux << std::scientific;
+	}
 	return flux;
 }
 

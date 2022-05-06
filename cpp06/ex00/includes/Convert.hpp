@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:22:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/04 17:27:35 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/06 21:26:43 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cerrno>
 # include <cmath>
 # include <limits>
+# include <iomanip>
 
 # define OTHER 0
 # define CHAR 1
@@ -29,7 +30,13 @@ class Convert
 {
 	public :
 		Convert(std::string cpy = "");
+		Convert(Convert const& copy);
+		~Convert();
+		Convert	&operator=(Convert const& copy);
 
+		int	get_type() const;
+		std::string	get_str() const;
+		
 		void	find_type();
 
 		void	make_conversion();
@@ -54,7 +61,7 @@ class Convert
 		bool	d_possible;
 		double	conv_d;
 
-		const std::string str;		
+		std::string str;
 		
 		bool	check_char();
 		bool	check_int();
