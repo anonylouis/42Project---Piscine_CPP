@@ -10,7 +10,7 @@ OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER_DIR = ./includes/
-HEADER_FILES = main.hpp iter.hpp color.hpp
+HEADER_FILES = main.hpp iter.hpp
 HEADERS = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
 
 DEPENDENCIES = ${OBJS:.o=.d}

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   color.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 02:12:12 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/07 12:56:19 by lcalvie          ###   ########.fr       */
+/*   Created: 2022/05/07 13:14:51 by lcalvie           #+#    #+#             */
+/*   Updated: 2022/05/07 13:20:27 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef COLOR_HPP
+# define COLOR_HPP
 
-template <typename T>
-void	iter(T tab[], int n, void (*f)(T))
-{
-        for (int i = 0;i < n; i++)
-                f(tab[i]);
-}
+# define reset "\033[00m"
+
+# define italic "\033[3m"
+# define bold "\033[1m"
+# define underline "\033[4m"
+
+# define white "\033[37m"
+# define red "\033[31m"
+# define green "\033[32m"
+# define blue "\033[34m"
 
 #endif
