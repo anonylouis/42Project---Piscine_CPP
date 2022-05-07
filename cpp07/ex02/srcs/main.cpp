@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:28:40 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/07 16:54:29 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/08 01:04:18 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int main(int, char**)
         {
                 if (mirror[i] != numbers[i])
                 {
-                std::cerr << "didn't save the same value!!" << std::endl;
-                return 1;
+			std::cerr << "didn't save the same value!!" << std::endl;
+			return 1;
                 }
         }
         try

@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:29:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/07 17:03:20 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/08 01:05:32 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ class Array
 
                 T &operator[](long i) const
                 {
-                        if (i < 0 || i > len)
+                        if (i < 0 || i >= (long) len)
                                 throw NotInRange();
                         else
                                 return (array[(unsigned int) i]);
