@@ -6,17 +6,27 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:29:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/07 14:59:26 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/07 17:03:20 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+# include <stdexcept>
 
 template <typename T>
 class Array
 {
         public :
+                class NotInRange : public std::exception
+                {
+                        public :
+                                virtual const char *what() const throw()
+                                {
+                                        return "Array[] : trying access element not in range";
+                                }
+                };
+
                 Array(unsigned int n = 0) : len(n)
                 {
                         if (n != 0)
@@ -25,14 +35,14 @@ class Array
                                 array = 0;
                 }
         
-                Array(Array cont& copy) : len(copy.len)
+                Array(Array const& copy) : len(copy.len)
                 {
-                        if (n != 0)
-                                array = new T[n]();
+                        if (len != 0)
+                                array = new T[len]();
                         else
                                 array = 0;
-                        for(int i = 0; i < len; i++)
-                                array[i] = copy.arry[i];
+                        for(unsigned int i = 0; i < len; i++)
+                                array[i] = copy.array[i];
                 }
 
                 ~Array()
@@ -44,12 +54,25 @@ class Array
                 {
                         len = copy.len;
                         delete[] array;
-                        if (n != 0)
-                                array = new T[n]();
+                        if (len != 0)
+                                array = new T[len]();
                         else
                                 array = 0;
-                        for(int i = 0; i < len; i++)
-                                array[i] = copy.arry[i];
+                        for(unsigned int i = 0; i < len; i++)
+                                array[i] = copy.array[i];
+                }
+
+                unsigned int    size() const
+                {
+                        return (len);
+                }
+
+                T &operator[](long i) const
+                {
+                        if (i < 0 || i > len)
+                                throw NotInRange();
+                        else
+                                return (array[(unsigned int) i]);
                 }
 
         private :

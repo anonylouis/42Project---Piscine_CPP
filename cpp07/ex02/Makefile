@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = iter
+NAME = array
 SOURCES = main.cpp
 #SRCS = $(addprefix ./srcs/, $(SOURCES))
 
@@ -10,7 +10,7 @@ OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER_DIR = ./includes/
-HEADER_FILES = main.hpp iter.hpp
+HEADER_FILES = Array.hpp
 HEADERS = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
 
 DEPENDENCIES = ${OBJS:.o=.d}
