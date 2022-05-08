@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:29:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/08 01:05:32 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/08 19:42:33 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,12 @@ class Array
 
                 Array(unsigned int n = 0) : len(n)
                 {
-                        if (n != 0)
-                                array = new T[n]();
-                        else
-                                array = 0;
+                        array = new T[n]();
                 }
         
                 Array(Array const& copy) : len(copy.len)
                 {
-                        if (len != 0)
-                                array = new T[len]();
-                        else
-                                array = 0;
+                        array = new T[len]();
                         for(unsigned int i = 0; i < len; i++)
                                 array[i] = copy.array[i];
                 }
@@ -54,10 +48,7 @@ class Array
                 {
                         len = copy.len;
                         delete[] array;
-                        if (len != 0)
-                                array = new T[len]();
-                        else
-                                array = 0;
+                        array = new T[len]();
                         for(unsigned int i = 0; i < len; i++)
                                 array[i] = copy.array[i];
                 }
@@ -74,6 +65,18 @@ class Array
                         else
                                 return (array[(unsigned int) i]);
                 }
+
+		void	print_array() const
+		{
+			std::cout << "[";
+			for (unsigned int i = 0; i < len; i++)
+			{
+				std::cout << array[i];
+				if (i != len - 1)
+					std::cout << ", ";
+			}
+			std::cout << "]" << std::endl;
+		}
 
         private :
                 unsigned int len;
