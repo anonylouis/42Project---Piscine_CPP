@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 23:16:55 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/09 00:44:21 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:49:23 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdexcept>
 # include <algorithm>
 # include <limits>
+# include <typeinfo>
 
 class Span
 {
@@ -35,6 +36,13 @@ class Span
 				return "Exception : Span has less than 2 elements";
 			}
 		};
+		class SpanNotInt : public std::exception
+		{
+			const char *what() const throw()
+			{
+				return "Exception : incorrect iterators";
+			}
+		};
 
 		Span(unsigned int n = 0);
 		Span(Span const& copy);
@@ -48,6 +56,13 @@ class Span
 		template <class InputIterator>
 		void addNumbers(InputIterator start, InputIterator last)
 		{
+			int common_int;
+			for (InputIterator it = start; it < last; ++it)
+			{
+				if (typeid(*it) != typeid(common_int))
+					throw SpanNotInt();
+			}
+
 			if (std::distance(start, last) > (len_max - len))
 				throw SpanFull();
 			array.insert(array.end(), start, last);

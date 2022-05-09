@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:08:11 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/09 00:46:55 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:51:12 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	main()
 	std::cout << std::endl << "vector well added" << std::endl;
 	try
 	{
-		sp.addNumber(42);
+		sp2.addNumber(42);
 	}
 	catch (std::exception &e)
 	{
@@ -91,5 +91,16 @@ int	main()
 	}
 	std::cout << "Shortest = " <<  sp2.shortestSpan() << std::endl;
 	std::cout << "Longest = " << sp2.longestSpan() << std::endl;
+
+	std::cout << std::endl << "Not Int element :" << std::endl;
+	double vdouble[3] = {1.1, 2.2, 3.3};
+	try
+	{
+		sp2.addNumbers(vdouble, vdouble + 3);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }
