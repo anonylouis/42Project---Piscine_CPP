@@ -1,7 +1,7 @@
 # 42Project---Piscine_CPP
 
-This Project from 42 Paris is an introduction to the programming language C++ and the object-oriented programming.  
-It is split in **9** modules :  
+This 42 Paris Project is an introduction to the C++ programming language and object-oriented programming.  
+It is divided into **9** modules :  
 - **cpp00:** Discover the existence of classes and learn the basic syntax of C++.
 - **cpp01:** Understand differences between pointers and references.
 - **cpp02:** Learn polymorphism and overloads.
