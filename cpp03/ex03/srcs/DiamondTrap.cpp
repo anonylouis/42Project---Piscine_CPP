@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:31:14 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 18:09:14 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:33:18 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), FragTr
         std::cout << "DiamondTrap : " << _name << " just appeared !" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const& copy) : ClapTrap(copy)
+DiamondTrap::DiamondTrap(DiamondTrap const& copy) : ClapTrap(copy), FragTrap(copy), ScavTrap(copy), _name(copy._name)
 {
-        _name = copy._name;
         std::cout << "DiamondTrap : A perfect copy of " << copy._name << " just appeared !" << std::endl;
 }
 

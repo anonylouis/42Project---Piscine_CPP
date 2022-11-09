@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 01:47:24 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/06 18:46:25 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:31:10 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,18 @@ void Harl::complain(std::string level)
 	int i(-1+("DEBUG"==level) + ("INFO"==level) * 2+("WARNING"==level) * 3 + ("ERROR"==level) * 4);
 	switch (i)
 	{
-		case 0:
+		case 0 :
 			this->debug();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 1 :
 			this->info();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 2 :
 			this->warning();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 3 :
 			this->error();
 			std::cout << std::endl;
