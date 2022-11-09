@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:32:31 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 14:47:18 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:45:53 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const& copy);
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		void attack(const std::string& target);
 

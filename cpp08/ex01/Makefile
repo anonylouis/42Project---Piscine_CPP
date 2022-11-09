@@ -10,7 +10,7 @@ OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER_DIR = ./includes/
-HEADER_FILES = Span.hpp
+HEADER_FILES = Span.hpp color.hpp
 HEADERS = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
 
 DEPENDENCIES = ${OBJS:.o=.d}

@@ -11,7 +11,7 @@ OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER = ./includes
-HEADER_FILES = A.hpp  Base.hpp  B.hpp  C.hpp
+HEADER_FILES = ./includes/A.hpp  ./includes/Base.hpp  ./includes/B.hpp  ./includes/C.hpp
 
 DEPENDENCIES = ${OBJS:.o=.d}
 all : $(NAME)

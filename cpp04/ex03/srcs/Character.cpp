@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:41:10 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/17 21:02:50 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/18 17:29:45 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Character::Character(std::string the_name) : name(the_name)
 
 Character::Character(Character const& copy)
 {
+        for(int i = 0; i < 4; i++)
+		items[i] = 0;
         *this = copy;
         std::cout << "A copy of character " << name << " created with success !" << std::endl;
 }

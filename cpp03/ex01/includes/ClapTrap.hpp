@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 03:10:16 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/11 19:00:39 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:45:31 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const& copy);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		ClapTrap &operator=(ClapTrap const& copy);
 
 		void attack(const std::string& target);

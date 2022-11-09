@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:30:59 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/12 17:29:37 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:55:09 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		~DiamondTrap();
 
                 DiamondTrap &operator=(DiamondTrap const& copy);
-                //using FragTrap::attack;
 
                 void whoAmI();
         

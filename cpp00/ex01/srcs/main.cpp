@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 18:12:55 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/01 15:50:46 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:07:13 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int	main()
 		do
 		{
 			std::cout << "Select an option between : ADD, SEARCH and EXIT :" << std::endl;
-			getline(std::cin, line);
+			if (!getline(std::cin, line))
+				return (0);
 		}
 		while (line != "ADD" && line != "SEARCH" && line !="EXIT");
 		
@@ -100,15 +101,17 @@ int	main()
 		}
 		else if (line == "SEARCH")
 		{
-			moleskine.print_phonebook();
-			std::cout << "Enter an index :";
-			getline(std::cin, line);
-			if ((index = is_correct_index(line, moleskine)))
-				moleskine.print_contact(index);
-			else
+			if (moleskine.print_phonebook())
 			{
-				std::cout << line << " : is not a correct index !" << std::endl;
-				std::cout << "Please try again by taping SEARCH" << std::endl << std::endl;
+				std::cout << "Enter an index : ";
+				getline(std::cin, line);
+				if ((index = is_correct_index(line, moleskine)))
+					moleskine.print_contact(index);
+				else
+				{
+					std::cout << line << " : is not a correct index !" << std::endl;
+					std::cout << "Please try again by taping SEARCH" << std::endl << std::endl;
+				}
 			}
 		}
 		else

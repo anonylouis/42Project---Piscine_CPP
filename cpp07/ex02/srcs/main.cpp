@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 13:28:40 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/08 19:40:50 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:33:16 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,24 @@ int main(int, char**)
 
         for (int i = 0; i < MAX_VAL; i++)
         {
-                const int value = rand();
+                const int value = rand() % 10000;
                 numbers[i] = value;
                 mirror[i] = value;
         }
 	numbers.print_array();
         
 	std::cout << std::endl;
-	std::cout << "operator = :" << std::endl;
+	std::cout << "operator = (+1) :" << std::endl;
 	Array<int> tmp = numbers;
+        for (int i = 0; i < MAX_VAL; i++)
+                tmp[i] = numbers[i] + 1;
 	tmp.print_array();
         
 	std::cout << std::endl;
-	std::cout << "copy constructor :" << std::endl;
+	std::cout << "copy constructor (-1) :" << std::endl;
 	Array<int> test(tmp);
+        for (int i = 0; i < MAX_VAL; i++)
+                test[i] = numbers[i] - 1;
 	test.print_array();
 
 	std::cout << std::endl;

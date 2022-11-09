@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:45:53 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/01 15:28:31 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:19:38 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	PhoneBook::add_contact(std::string first_name, std::string last_name, std::
 	}
 }
 
-void	PhoneBook::print_phonebook()
+int	PhoneBook::print_phonebook()
 {
 	if (m_nb_contact == 0)
 	{
 		std::cout << "There are no contact in this Moleskine, u can ADD one by taping ADD !" << std::endl << std::endl;
-		return ;
+		return 0;
 	}
 	std::string dash_line(45, '-');
 
@@ -51,7 +51,6 @@ void	PhoneBook::print_phonebook()
 	std::cout <<dash_line << std::endl;
 
 	char index('0');
-	std::string spaces(10, ' ');
 	std::string firstname("");
 	std::string lastname("");
 	std::string nickname("");
@@ -63,22 +62,23 @@ void	PhoneBook::print_phonebook()
 		firstname = m_phonebook[i].get_firstname().substr(0,10);
 		if (m_phonebook[i].get_firstname().length() > 10)
 			firstname[9] = '.';
-		std::cout << "|" << spaces.substr(0,10 - firstname.length()) << firstname;
+		std::cout << "|" << std::setw(10) << firstname;
 
 		lastname = m_phonebook[i].get_lastname().substr(0,10);
 		if (m_phonebook[i].get_lastname().length() > 10)
 			lastname[9] = '.';
-		std::cout <<"|" << spaces.substr(0,10 - lastname.length()) << lastname;
+		std::cout <<"|" << std::setw(10) << lastname;
 
 		nickname = m_phonebook[i].get_nickname().substr(0,10);
 		if (m_phonebook[i].get_nickname().length() > 10)
 			nickname[9] = '.';
-		std::cout <<"|" << spaces.substr(0,10 - nickname.length()) << nickname;
+		std::cout <<"|" << std::setw(10) << nickname;
 
 		std::cout << "|" << std::endl;
 		std::cout << dash_line << std::endl;
 	}
 	std::cout << std::endl;
+	return 1;
 }
 
 void	PhoneBook::print_contact(int index)

@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:08:28 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/01 18:28:32 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/04 15:29:06 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,12 @@ Account::~Account()
 
 void	Account::_displayTimestamp()
 {
-	/*
 	time_t t = time(0);
 	char buffer[100];
 	
 	strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", localtime(&t));
 	std::cout << buffer;
-	*/
-	std::cout << "[19920104_091532]";
+	//std::cout << "[19920104_091532]";
 }
 
 void Account::displayAccountsInfos()

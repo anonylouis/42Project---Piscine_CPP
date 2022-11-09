@@ -6,16 +6,17 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 22:08:11 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/05/09 11:51:12 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/05/09 16:59:17 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include "color.hpp"
 #include <iostream>
 
 int	main()
 {
-	std::cout << "Test for array of 5 elements :" << std::endl << std::endl;
+	std::cout << red << bold << "Test for array of 5 elements :" << std::endl << std::endl << reset;
 
 	Span sp = Span(5);
 	sp.addNumber(6);
@@ -55,7 +56,7 @@ int	main()
 
 
 	std::cout << std::endl;
-	std::cout << "Test for array of 20000 elements :" << std::endl << std::endl;
+	std::cout << red << bold << "Test for array of 20000 elements :" << std::endl << std::endl << reset ;
 	
 	Span sp2 = Span(20000);
 	int test1[10000];

@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:52:37 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/17 20:26:56 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/18 17:23:41 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for(int i = 0; i < 4; i++)
         {
-                if ((saved[i])->getType() == type)
+                if (saved[i] && (saved[i])->getType() == type)
 			return ((saved[i])->clone());
         }
+	std::cout << "can't create material " << type << std::endl;
         return (0);
 }

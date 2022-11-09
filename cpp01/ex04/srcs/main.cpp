@@ -6,7 +6,7 @@
 /*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:09:38 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/04/06 01:33:57 by lcalvie          ###   ########.fr       */
+/*   Updated: 2022/04/06 19:13:48 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int main(int argc, char *argv[])
 
 	char	c;
 	int	j;
-	while (fd_in.get(c))
+	int read(0);
+	while (read || fd_in.get(c))
 	{
+		read = 0;
 		if (argv[2][0] == c)
 		{
 			j = -1;
@@ -48,11 +50,11 @@ int main(int argc, char *argv[])
 			if (argv[2][j])
 				fd_out << ((std:: string) argv[2]).substr(0, j);
 			else
-				fd_out << argv[3];			
+				fd_out << argv[3];
+			read = 1;
 		}
-		fd_out << c;
+		else
+			fd_out << c;
 	}
-	
-	
 	return 0;
 }

@@ -4,14 +4,14 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 NAME = serialize
 
-SOURCES = Data.cpp  main.cpp  serialize.cpp
+SOURCES = Data.cpp	main.cpp	serialize.cpp
 #SRCS = $(addprefix ./srcs/, $(SOURCES))
 
 OBJECTS = ${SOURCES:.cpp=.o}
 OBJS = $(addprefix ./objs/, $(OBJECTS))
 
 HEADER = ./includes
-HEADER_FILES = Data.hpp
+HEADER_FILES = ./includes/Data.hpp
 
 DEPENDENCIES = ${OBJS:.o=.d}
 all : $(NAME)
@@ -28,7 +28,7 @@ fclean : clean
 
 re :	fclean all
 
-./objs/%.o :	./srcs/%.cpp $(HEADER_FILES)
+./objs/%.o :./srcs/%.cpp $(HEADER_FILES)
 		mkdir -p objs
 		$(CC) $(FLAGS) -MMD -I $(HEADER) -o $@ -c $<
 
