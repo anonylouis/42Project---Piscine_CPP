@@ -1,33 +1,87 @@
-# Prerequisites
-*.d
+#cpp00
+./cpp00/ex00/objs/
+./cpp00/ex00/megaphone
+./cpp00/ex01/objs/
+./cpp00/ex01/moleskine
+./cpp00/ex02/objs/
+./cpp00/ex02/test
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+#cpp01
+./cpp01/ex00/objs/
+./cpp01/ex00/BraiiiiiiinnnzzzZ
+./cpp01/ex01/objs/
+./cpp01/ex01/MoarBrainz
+./cpp01/ex02/objs/
+./cpp01/ex02/HITHISBRAIN
+./cpp01/ex03/objs/
+./cpp01/ex03/UnnecessaryViolence
+./cpp01/ex04/objs/
+./cpp01/ex04/sed
+./cpp01/ex05/objs/
+./cpp01/ex05/Harl
+./cpp01/ex06/objs/
+./cpp01/ex06/harlFilter
 
-# Precompiled Headers
-*.gch
-*.pch
+#cpp02
+./cpp02/ex00/objs/
+./cpp02/ex00/a.out
+./cpp02/ex01/objs/
+./cpp02/ex01/a.out
+./cpp02/ex02/objs/
+./cpp02/ex02/a.out
+./cpp02/ex03/objs/
+./cpp02/ex03/a.out
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+#cpp03
+./cpp03/ex00/objs/
+./cpp03/ex00/clapTrap
+./cpp03/ex01/objs/
+./cpp03/ex01/scavTrap
+./cpp03/ex02/objs/
+./cpp03/ex02/FragTrap
+./cpp03/ex03/objs/
+./cpp03/ex03/DiamondTrap
 
-# Fortran module files
-*.mod
-*.smod
+#cpp04
+./cpp04/ex00/objs/
+./cpp04/ex00/animals
+./cpp04/ex01/objs/
+./cpp04/ex01/brains
+./cpp04/ex02/objs/
+./cpp04/ex02/abstract
+./cpp04/ex03/objs/
+./cpp04/ex03/materias
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+#cpp05
+./cpp05/ex00/objs/
+./cpp05/ex00/grades
+./cpp05/ex01/objs/
+./cpp05/ex01/form
+./cpp05/ex02/objs/
+./cpp05/ex02/Aform
+./cpp05/ex03/objs/
+./cpp05/ex03/intern
 
-# Executables
-*.exe
-*.out
-*.app
-megaphone
+#cpp06
+./cpp06/ex00/objs/
+./cpp06/ex00/convert
+./cpp06/ex01/objs/
+./cpp06/ex01/serialize
+./cpp06/ex02/objs/
+./cpp06/ex02/base
+
+#pp07
+./cpp07/ex00/objs/
+./cpp07/ex00/watever
+./cpp07/ex01/objs/
+./cpp07/ex01/iter
+./cpp07/ex02/objs/
+./cpp07/ex02/array
+
+#cpp08
+./cpp08/ex00/objs/
+./cpp08/ex00/easyfind
+./cpp08/ex01/objs/
+./cpp08/ex01/Span
+./cpp08/ex02/objs/
+./cpp08/ex02/mutantstack
